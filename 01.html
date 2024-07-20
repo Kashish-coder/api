@@ -11,7 +11,18 @@
 <script>
     const xhr=new XMLHttpRequest();
     xhr.open('GET', 'https://api.github.com/users/hiteshchoudhary');
-    console.log("here");
+    xhr.onreadystatechange=function(){
+        console.log(xhr.readyState);
+        if(xhr.readyState===4){
+            //to access certain data from api
+        const data=JSON.parse(this.responseText)//json converts string to object
+    console.log(data);
+    console.log(data.followers);
+    }}
+    console.log("here");//api
     xhr.send();
+    
+    
+    
     </script>
 </html>
